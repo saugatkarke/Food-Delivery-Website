@@ -1,9 +1,9 @@
 #root {
   margin: 0 auto;
   padding: 1.25rem;
-  border-bottom: 1px solid lightgray;
   text-align: center;
 }
-#header {
+#header,
+#foodie-body {
   max-width: 1280px;
 }

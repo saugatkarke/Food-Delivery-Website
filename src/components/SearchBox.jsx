@@ -2,7 +2,7 @@ import React from "react";
 
 export default function SearchBox() {
   return (
-    <form className="w-3/5 mx-auto">
+    <form className="w-2/4 mx-auto">
       <label
         htmlFor="default-search"
         className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"

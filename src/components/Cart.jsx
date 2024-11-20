@@ -2,8 +2,8 @@ import React from "react";
 import { useState } from "react";
 
 export default function Cart() {
-  const iconHeight = 40;
-  const iconWidth = 40;
+  const iconHeight = 35;
+  const iconWidth = 35;
   const [count, setCount] = useState(0);
   return (
     <div className="relative">
