@@ -1,8 +1,22 @@
 import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
 
-export default function SearchBox() {
+export default function SearchBox({ resData, setFilteredRes }) {
+  const [searchInput, setSearchInput] = useState("");
+  useEffect(() => {
+    setFilteredRes(resData);
+  }, [resData]);
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    setFilteredRes(
+      resData.filter((searchRes) =>
+        searchRes.info.name.toLowerCase().includes(searchInput.toLowerCase())
+      )
+    );
+  };
   return (
-    <form className="w-2/4 mx-auto">
+    <form className="w-2/4 mx-auto" onSubmit={handleFormSubmit}>
       <label
         htmlFor="default-search"
         className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
@@ -28,6 +42,10 @@ export default function SearchBox() {
           </svg>
         </div>
         <input
+          onChange={(e) => {
+            setSearchInput(e.target.value);
+          }}
+          value={searchInput}
           type="search"
           id="default-search"
           className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"

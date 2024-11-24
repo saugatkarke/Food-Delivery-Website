@@ -4,7 +4,7 @@ import SearchBox from "./SearchBox";
 import Cart from "./Cart";
 import { LOGO_PNG } from "../utils/constant";
 
-export default function Header() {
+export default function Header({ resData, setFilteredRes }) {
   const logoHeight = 50;
   const logoWidth = 200;
   return (
@@ -19,7 +19,7 @@ export default function Header() {
           />
           <div className="px-3 flex justify-center  w-full gap-5 mx-auto items-center">
             <Location />
-            <SearchBox />
+            <SearchBox resData={resData} setFilteredRes={setFilteredRes} />
             <Cart />
           </div>
         </div>

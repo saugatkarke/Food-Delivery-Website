@@ -30,8 +30,13 @@ export default function Shimmer() {
   }
   return (
     <>
-      <h2>Restaurants Near You</h2>
-      <div className="flex gap-3 flex-wrap">{shimmerComponents}</div>
+      <div
+        id="foodie-body"
+        className="mx-auto py-3 flex flex-col items-start gap-3"
+      >
+        <h2>Restaurants Near You</h2>
+        <div className="flex gap-3 flex-wrap">{shimmerComponents}</div>
+      </div>
     </>
   );
 }

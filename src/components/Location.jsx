@@ -23,7 +23,7 @@ export default function Location() {
               setLocation(
                 `${result?.results[0]?.address_line1}, ${result?.results[0]?.city}, ${result?.results[0]?.postcode}`
               );
-              console.log(result);
+              //   console.log(result);
             })
             .catch((error) => console.log("error", error));
         },
