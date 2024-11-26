@@ -1,7 +1,5 @@
-// import React, { useState, useEffect } from "react";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
-import useFoodApi from "../hooks/useFoodApi";
 
 export default function Body({resData}) {
 

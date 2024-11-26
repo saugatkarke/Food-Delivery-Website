@@ -16,7 +16,7 @@ export default function SearchBox({ resData, setFilteredRes }) {
     );
   };
   return (
-    <form className="w-2/4 mx-auto" onSubmit={handleFormSubmit}>
+    <form className="w-[28%] mx-auto" onSubmit={handleFormSubmit}>
       <label
         htmlFor="default-search"
         className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"

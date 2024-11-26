@@ -54,7 +54,7 @@ export default function Location() {
           fill="#FF5200"
         ></path>
       </svg>
-      <p className="text-black font-medium text-lg">
+      <p className="text-black font-medium text-m">
         {location ? location : "Use Precise Location"}
       </p>
       {location ? (

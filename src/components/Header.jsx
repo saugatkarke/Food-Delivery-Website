@@ -3,6 +3,7 @@ import Location from "./Location";
 import SearchBox from "./SearchBox";
 import Cart from "./Cart";
 import { LOGO_PNG } from "../utils/constant";
+import AppNav from "./AppNav";
 
 export default function Header({ resData, setFilteredRes }) {
   const logoHeight = 50;
@@ -18,6 +19,7 @@ export default function Header({ resData, setFilteredRes }) {
             className="object-contain"
           />
           <div className="px-3 flex justify-center  w-full gap-5 mx-auto items-center">
+            <AppNav />
             <Location />
             <SearchBox resData={resData} setFilteredRes={setFilteredRes} />
             <Cart />
