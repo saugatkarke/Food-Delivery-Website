@@ -4,8 +4,10 @@ import SearchBox from "./SearchBox";
 import Cart from "./Cart";
 import { LOGO_PNG } from "../utils/constant";
 import AppNav from "./AppNav";
+import { useContext } from "react";
+import { useFetchContext } from "../context/FetchContext";
 
-export default function Header({ resData, setFilteredRes }) {
+export default function Header() {
   const logoHeight = 50;
   const logoWidth = 200;
   return (
@@ -21,7 +23,7 @@ export default function Header({ resData, setFilteredRes }) {
           <div className="px-3 flex justify-center  w-full gap-5 mx-auto items-center">
             <AppNav />
             <Location />
-            <SearchBox resData={resData} setFilteredRes={setFilteredRes} />
+            <SearchBox />
             <Cart />
           </div>
         </div>

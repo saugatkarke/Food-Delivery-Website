@@ -1,8 +1,10 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
+import { useFetchContext } from "../context/FetchContext";
 
-export default function SearchBox({ resData, setFilteredRes }) {
+export default function SearchBox() {
+  const { resApiData: resData, setFilteredRes } = useFetchContext();
   const [searchInput, setSearchInput] = useState("");
   useEffect(() => {
     setFilteredRes(resData);

@@ -1,8 +1,9 @@
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
+import { useFetchContext } from "../context/FetchContext";
 
-export default function Body({resData}) {
-
+export default function Body() {
+  const { filteredRes:resData } = useFetchContext();
   return resData.length == 0 ? (
     <Shimmer />
   ) : (
