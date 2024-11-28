@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router";
 import { RES_IMG } from "../utils/constant";
 
 export default function RestaurantCard({
@@ -8,6 +9,7 @@ export default function RestaurantCard({
   rePrice,
   reDelTime,
   reImage,
+  reLinkId
 }) {
   return (
     <div className="border-2 shadow-inner hover:shadow-lg hover:scale-105 rounded-md border-grey w-48 min-h-fit flex flex-wrap cursor-pointer">
@@ -16,7 +18,9 @@ export default function RestaurantCard({
         style={{ backgroundImage: `url(${RES_IMG}/${reImage})` }}
       >
         <div className="absolute bottom-0 px-2 w-full flex items-end justify-between bg-gradient-to-t from-black to-transparent rounded-t-md">
-          <h3 className="text-white text-left">{reName}</h3>
+          <Link to={`/restaurants/${reLinkId}`}>
+            <h3 className="text-white text-left">{reName}</h3>
+          </Link>
           <p className="text-white flex items-center">
             <svg
               width="16"

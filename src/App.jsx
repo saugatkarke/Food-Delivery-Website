@@ -1,12 +1,11 @@
 import "./App.css";
-import { useState } from "react";
 import Body from "./components/Body";
 import Header from "./components/Header";
-import useFoodApi from "./hooks/useFoodApi";
 import Error from "./components/Error";
 import About from "./components/About";
 import { createBrowserRouter, Outlet } from "react-router";
 import FetchContextProvider from "./context/FetchContext";
+import RestaurantMenu from "./components/RestaurantMenu";
 
 function App() {
 
@@ -26,6 +25,7 @@ export const appRouter = createBrowserRouter([
     children: [
       { path: "/", element: <Body /> },
       { path: "/about", element: <About /> },
+      { path: "/restaurants/:resId", element: <RestaurantMenu /> },
     ],
     errorElement: <Error />,
   },

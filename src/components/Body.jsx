@@ -3,7 +3,7 @@ import Shimmer from "./Shimmer";
 import { useFetchContext } from "../context/FetchContext";
 
 export default function Body() {
-  const { filteredRes:resData } = useFetchContext();
+  const { filteredRes: resData } = useFetchContext();
   return resData.length == 0 ? (
     <Shimmer />
   ) : (
@@ -23,6 +23,7 @@ export default function Body() {
               rePrice={res.info.costForTwo}
               reDelTime={res.info.sla.slaString}
               reImage={res.info.cloudinaryImageId}
+              reLinkId = {res.info.id}
             />
           );
         })}
