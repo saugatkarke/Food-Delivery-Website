@@ -15,6 +15,21 @@ export default {
         lightBeige: "#FFF3E0",
         neutralDark: "#3E2723",
       },
+      keyframes: {
+        fadeInUp: {
+          "0%": { opacity: "0", transform: "translateY(20px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        fadeIn: {
+          "0%": { opacity: "0", },
+          "100%": { opacity: "1" },
+        },
+      },
+      animation: {
+        "pulse-3": "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) 3",
+        "fade-in-up": "fadeInUp 1s ease-out",
+        "fade-in": "fadeIn 1s linear",
+      },
     },
   },
   plugins: [],

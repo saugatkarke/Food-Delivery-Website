@@ -16,7 +16,8 @@ export default function useResMenu() {
   const fetchMenuData = async () => {
     const data = await fetch(`${SWIGGY_API}`);
     const jsonData = await data.json();
-    setResMenuData(jsonData?.data?.cards[2]?.card?.card?.info);
+    setResMenuData(jsonData?.data?.cards);
   };
+//   console.log(resMenuData);
   return resMenuData;
 }
