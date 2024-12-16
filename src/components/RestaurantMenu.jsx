@@ -1,48 +1,64 @@
-import { info } from "autoprefixer";
 import React from "react";
-import { useState } from "react";
+import { useRef } from "react";
+import NonVegIcon from "../assets/widgets/NonVegIcon";
 import Spinner from "../assets/widgets/Spinner";
+import VegIcon from "../assets/widgets/VegIcon";
 import useResMenu from "../hooks/useResMenu";
-import { RES_IMG, OFFER_IMG } from "../utils/constant";
+import { RES_IMG, OFFER_IMG, MENU_IMG } from "../utils/constant";
 
 export default function RestaurantMenu() {
-  const AMT_TO_SCROLL = 16;
-  const [scrollAmt, setScrollAmt] = useState(AMT_TO_SCROLL);
+  const [restMenu, resMenuHeader, resMenuOffer, resCatMenu] = useResMenu();
+  const scrollContRef = useRef();
+  const cardWidthRef = useRef();
 
-  const restMenu = useResMenu();
+  const scroll = (direction) => {
+    let scrollAmount = cardWidthRef.current.scrollWidth;
+    if (direction == "left") {
+      scrollContRef.current.scrollBy({
+        left: scrollAmount,
+        behavior: "smooth",
+      });
+      console.log(scrollContRef.current.scrollLeft);
+    } else if (direction == "right") {
+      scrollContRef.current.scrollBy({
+        left: -scrollAmount,
+        behavior: "smooth",
+      });
+    }
+  };
+  console.log(resCatMenu);
   if (restMenu.length == 0)
     return (
       <div className="bg-primary h-72 grid content-center max-w-7xl mx-auto my-2 rounded-lg">
         <Spinner />
       </div>
     );
-  const resMenu = restMenu[2].card.card.info;
-  const resMenuOffer = restMenu[3].card.card.gridElements.infoWithStyle.offers;
-  console.log(resMenu);
+
+  // console.log(resMainMenus);
   return (
     <div className="mx-auto max-w-7xl my-2 p-4">
       <div className="relative">
         <div
           className="absolute bg-[position-y:10%] top-0 left-auto right-0 h-[100%] w-[30%] bg-no-repeat bg-cover rounded-e-lg"
           style={{
-            backgroundImage: `url(${RES_IMG}/${resMenu.cloudinaryImageId})`,
+            backgroundImage: `url(${RES_IMG}/${resMenuHeader.cloudinaryImageId})`,
           }}
         ></div>
         <div className="bg-primary min-h-72 px-16 py-8 grid grid-cols-3 content-center gap-1 rounded-lg">
           <div className="grid justify-items-start">
             <h1 className="text-white text-5xl text-left animate-fade-in-up">
-              {resMenu.name}
+              {resMenuHeader.name}
             </h1>
             <p className="text-white animate-fade-in-up">
-              {resMenu.cuisines?.map((cus, index) => {
-                if (resMenu.cuisines.length - 1 != index)
+              {resMenuHeader.cuisines?.map((cus, index) => {
+                if (resMenuHeader.cuisines.length - 1 != index)
                   return cus + "," + " ";
                 return cus;
               })}
             </p>
             <strong>
               <p className="bg-white my-2 px-4 py-1 rounded-full animate-fade-in-up">
-                {resMenu.sla.slaString}
+                {resMenuHeader.sla.slaString}
               </p>
             </strong>
           </div>
@@ -80,49 +96,62 @@ export default function RestaurantMenu() {
                 </defs>
                 {"some"}
               </svg>
-              {resMenu.avgRating}({resMenu.totalRatingsString}) ♦︎
-              <span className="text-white">{resMenu.areaName}</span>
+              {resMenuHeader.avgRating}({resMenuHeader.totalRatingsString}) ♦︎
+              <span className="text-white">{resMenuHeader.areaName}</span>
             </p>
             <h2 className="text-white italic animate-pulse-3 duration-75">
-              {resMenu.costForTwoMessage}
+              {resMenuHeader.costForTwoMessage}
             </h2>
             <h2 className="text-[#ffffff61] italic animate-pulse-3 duration-100">
-              {resMenu.costForTwoMessage}
+              {resMenuHeader.costForTwoMessage}
             </h2>
             <h2 className="text-[#ffffff14] italic animate-pulse-3 duration-300">
-              {resMenu.costForTwoMessage}
+              {resMenuHeader.costForTwoMessage}
             </h2>
           </div>
         </div>
       </div>
-      <div className="flex my-4 overflow-hidden relative flex-wrap gap-4">
+      <div className="flex my-4 relative flex-wrap gap-4 ">
         <strong>
           <p className="text-2xl">Deals of the Day</p>
         </strong>
-        <div className={`flex flex-nowrap gap-4 translate-x-${scrollAmt}`}>
-          {resMenuOffer.map((offer) => {
-            return (
-              <div
-                key={offer.info.offerIds[0]}
-                className="w-[18rem] rounded-lg p-2 border border-dashed border-[#e4e1e1] flex items-center gap-2 overflow-hidden animate-fade-in"
-              >
-                <img
-                  src={`${OFFER_IMG}/${offer?.info?.offerLogo}`}
-                  width={60}
-                  height={60}
-                />{" "}
-                <div className="text-left">
-                  <h3>{offer?.info?.header}</h3>
-                  <span className="text-sm whitespace-nowrap text-ellipsis">
-                    {offer?.info?.description}
-                  </span>
+        <div
+          id="menu-offer-card"
+          ref={scrollContRef}
+          className="flex overflow-x-scroll"
+        >
+          <div className="flex flex-nowrap gap-4">
+            {resMenuOffer.map((offer) => {
+              return (
+                <div
+                  ref={cardWidthRef}
+                  key={offer.info.offerIds[0]}
+                  className="w-[18rem] rounded-lg p-2 border border-dashed border-[#e4e1e1] flex items-center gap-2 overflow-hidden animate-fade-in"
+                >
+                  <img
+                    src={`${OFFER_IMG}/${offer?.info?.offerLogo}`}
+                    width={60}
+                    height={60}
+                  />{" "}
+                  <div className="text-left">
+                    <h3>{offer?.info?.header}</h3>
+                    <span className="text-sm whitespace-nowrap text-ellipsis">
+                      {offer?.info?.description}
+                    </span>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
         <div className="absolute right-0">
-          <button id="prevBtn" className="mx-2">
+          <button
+            id="prevBtn"
+            onClick={() => {
+              scroll("right");
+            }}
+            className="mx-2"
+          >
             <div className="bg-[#dfdfdf] ease-linear transition-all border-2 rounded-full p-2 hover:bg-white hover:border-2 hover:border-[#e0e0e0]">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -139,7 +168,12 @@ export default function RestaurantMenu() {
               </svg>
             </div>
           </button>
-          <button id="nextBtn">
+          <button
+            id="nextBtn"
+            onClick={() => {
+              scroll("left");
+            }}
+          >
             <div className="bg-[#dfdfdf] ease-linear transition-all border-2 rounded-full p-2 hover:bg-white hover:border-2 hover:border-[#e0e0e0]">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -157,6 +191,60 @@ export default function RestaurantMenu() {
             </div>
           </button>
         </div>
+      </div>
+      <div className="my-12 bg-gray-50 p-8 rounded-lg bg-food-cover bg-repeat-x bg-15% bg-blend-color-burn">
+        <h2 className="pb-8">Menu</h2>
+        {resCatMenu.map((catMenu) => {
+          const { title, itemCards } = catMenu?.card?.card;
+          return (
+            <div
+              className="w-[1090px]  mx-auto flex flex-col items-start"
+              key={itemCards[0].card.info.id}
+            >
+              <h3>{title}</h3>
+              {itemCards.map((item) => {
+                const {
+                  id,
+                  name,
+                  defaultPrice,
+                  price,
+                  imageId,
+                  description,
+                  itemAttribute,
+                } = item?.card?.info;
+                return (
+                  <div key={id} className="flex w-full">
+                    <div className="flex flex-col items-start w-[80%]">
+                      <h4>{name}</h4>
+                      <p className="text-start">
+                        ₹{defaultPrice / 100 ? defaultPrice / 100 : price / 100}
+                      </p>
+                      <p className="text-start">
+                        <span>{description}</span>
+                        <span>
+                          {itemAttribute?.vegClassifier == "VEG" ? (
+                            <VegIcon svgHeight={40} svgWidth={40} />
+                          ) : (
+                            <NonVegIcon svgHeight={40} svgWidth={40} />
+                          )}
+                        </span>
+                      </p>
+                    </div>
+                    <div className="flex flex-col items-end w-[20%]">
+                      <img
+                        className="rounded-sm"
+                        src={MENU_IMG + "/" + imageId}
+                        alt={name + "image"}
+                        height={150}
+                        width={150}
+                      />
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          );
+        })}
       </div>
     </div>
   );

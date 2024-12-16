@@ -6,3 +6,6 @@
 #foodie-body {
   max-width: 1280px;
 }
+#menu-offer-card::-webkit-scrollbar {
+  display: none;
+}

@@ -6,6 +6,12 @@ export default {
       backgroundImage: {
         "linear-gradient-black-transparent":
           "linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%)",
+        "food-cover": "url('/src/assets/images/food items vectors.png')",
+      },
+      backgroundSize: {
+        '15%': '15%',     // Custom size (example)
+        '16': '4rem',     // Another example using rem
+        'custom': '200px 100px', // Specific custom width & height
       },
       colors: {
         primary: "#FF5200",
@@ -15,13 +21,20 @@ export default {
         lightBeige: "#FFF3E0",
         neutralDark: "#3E2723",
       },
+      scrollbar: {
+        hidden: {
+          "::-webkit-scrollbar": {
+            display: "none",
+          },
+        },
+      },
       keyframes: {
         fadeInUp: {
           "0%": { opacity: "0", transform: "translateY(20px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
         fadeIn: {
-          "0%": { opacity: "0", },
+          "0%": { opacity: "0" },
           "100%": { opacity: "1" },
         },
       },
