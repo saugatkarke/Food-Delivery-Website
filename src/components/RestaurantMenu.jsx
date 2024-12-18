@@ -10,7 +10,31 @@ export default function RestaurantMenu() {
   const [restMenu, resMenuHeader, resMenuOffer, resCatMenu] = useResMenu();
   const scrollContRef = useRef();
   const cardWidthRef = useRef();
+  const menuContRef = useRef();
 
+  const toggleMenu = (btnText) => {
+    let menuList = [...menuContRef.current.childNodes];
+    function showMenu() {
+      btnText.parentElement.nextSibling.hidden = false;
+      btnText.nextElementSibling.classList.add("rotate-180");
+    }
+
+    function hideMenu() {
+      btnText.parentElement.nextSibling.hidden = true;
+      btnText.nextElementSibling.classList.remove("rotate-180");
+    }
+
+    function hideAllMenu(currMenu) {
+      currMenu.children[1].hidden = true;
+      currMenu.children[0].children[1].classList.remove("rotate-180");
+    }
+    menuList.forEach((menu) => {
+      if (btnText.parentElement.dataset.btn !== menu.childNodes[1].dataset.cat)
+        return hideAllMenu(menu);
+      if (!btnText.parentElement.nextSibling.hidden) return hideMenu();
+      showMenu();
+    });
+  };
   const scroll = (direction) => {
     let scrollAmount = cardWidthRef.current.scrollWidth;
     if (direction == "left") {
@@ -18,7 +42,6 @@ export default function RestaurantMenu() {
         left: scrollAmount,
         behavior: "smooth",
       });
-      console.log(scrollContRef.current.scrollLeft);
     } else if (direction == "right") {
       scrollContRef.current.scrollBy({
         left: -scrollAmount,
@@ -34,7 +57,6 @@ export default function RestaurantMenu() {
       </div>
     );
 
-  // console.log(resMainMenus);
   return (
     <div className="mx-auto max-w-7xl my-2 p-4">
       <div className="relative">
@@ -111,6 +133,7 @@ export default function RestaurantMenu() {
           </div>
         </div>
       </div>
+
       <div className="flex my-4 relative flex-wrap gap-4 ">
         <strong>
           <p className="text-2xl">Deals of the Day</p>
@@ -118,7 +141,7 @@ export default function RestaurantMenu() {
         <div
           id="menu-offer-card"
           ref={scrollContRef}
-          className="flex overflow-x-scroll"
+          className="flex overflow-x-scroll w-full"
         >
           <div className="flex flex-nowrap gap-4">
             {resMenuOffer.map((offer) => {
@@ -194,57 +217,88 @@ export default function RestaurantMenu() {
       </div>
       <div className="my-12 bg-gray-50 p-8 rounded-lg bg-food-cover bg-repeat-x bg-15% bg-blend-color-burn">
         <h2 className="pb-8">Menu</h2>
-        {resCatMenu.map((catMenu) => {
-          const { title, itemCards } = catMenu?.card?.card;
-          return (
-            <div
-              className="w-[1090px]  mx-auto flex flex-col items-start"
-              key={itemCards[0].card.info.id}
-            >
-              <h3>{title}</h3>
-              {itemCards.map((item) => {
-                const {
-                  id,
-                  name,
-                  defaultPrice,
-                  price,
-                  imageId,
-                  description,
-                  itemAttribute,
-                } = item?.card?.info;
-                return (
-                  <div key={id} className="flex w-full">
-                    <div className="flex flex-col items-start w-[80%]">
-                      <h4>{name}</h4>
-                      <p className="text-start">
-                        ₹{defaultPrice / 100 ? defaultPrice / 100 : price / 100}
-                      </p>
-                      <p className="text-start">
-                        <span>{description}</span>
-                        <span>
-                          {itemAttribute?.vegClassifier == "VEG" ? (
-                            <VegIcon svgHeight={40} svgWidth={40} />
-                          ) : (
-                            <NonVegIcon svgHeight={40} svgWidth={40} />
-                          )}
-                        </span>
-                      </p>
-                    </div>
-                    <div className="flex flex-col items-end w-[20%]">
-                      <img
-                        className="rounded-sm"
-                        src={MENU_IMG + "/" + imageId}
-                        alt={name + "image"}
-                        height={150}
-                        width={150}
-                      />
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          );
-        })}
+        <div
+          ref={menuContRef}
+          className="w-[1090px]  mx-auto flex flex-col items-start"
+        >
+          {resCatMenu.map((catMenu) => {
+            const { title, itemCards } = catMenu?.card?.card;
+            return (
+              <div
+                key={crypto.randomUUID()}
+                className="w-full mx-auto flex flex-col items-start"
+              >
+                <button
+                  onClick={(e) => {
+                    toggleMenu(e.target);
+                  }}
+                  data-btn={title}
+                  className="inline-flex w-full justify-between items-center  border-grey border-b-2"
+                >
+                  <h3 className="py-4">
+                    {title} ({itemCards.length})
+                  </h3>
+                  <span className="transition-all">▼</span>
+                </button>
+                <div
+                  key={crypto.randomUUID()}
+                  data-cat={title}
+                  className="w-full"
+                  hidden
+                >
+                  {itemCards.map((item) => {
+                    const {
+                      id,
+                      name,
+                      defaultPrice,
+                      price,
+                      imageId,
+                      description,
+                      itemAttribute,
+                    } = item?.card?.info;
+                    return (
+                      <div
+                        key={crypto.randomUUID()}
+                        className="flex w-full my-4 p-4 bg-white rounded-lg"
+                      >
+                        <div className="flex flex-col items-start w-[80%]">
+                          <h4 className="flex gap-2">
+                            {name}
+                            <span>
+                              {itemAttribute?.vegClassifier == "VEG" ? (
+                                <VegIcon svgHeight={24} svgWidth={24} />
+                              ) : (
+                                <NonVegIcon svgHeight={24} svgWidth={24} />
+                              )}
+                            </span>
+                          </h4>
+                          <p className="text-start">
+                            ₹
+                            {defaultPrice / 100
+                              ? defaultPrice / 100
+                              : price / 100}
+                          </p>
+                          <p className="text-start">
+                            <span>{description}</span>
+                          </p>
+                        </div>
+                        <div className="flex flex-col items-end w-[20%]">
+                          <img
+                            className="rounded-sm"
+                            src={MENU_IMG + "/" + imageId}
+                            alt={name + "image"}
+                            height={150}
+                            width={150}
+                          />
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

@@ -23,7 +23,7 @@ export default function useResMenu() {
     setResMenuData(jsonData?.data?.cards);
     setResMenuHeader(jsonData?.data?.cards[2].card.card.info);
     setresMenuOffer(
-      jsonData?.data?.cards[3].card.card.gridElements.infoWithStyle.offers
+      jsonData?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.offers
     );
 
     setResCatMenu(
