@@ -9,11 +9,11 @@ export default function RestaurantCard({
   rePrice,
   reDelTime,
   reImage,
-  reLinkId
+  reLinkId,
 }) {
   return (
-      <Link className="no-underline text-black" to={`/restaurants/${reLinkId}`}>
-    <div className="border-2 flex-start h-full shadow-inner hover:shadow-lg hover:scale-105 rounded-md border-grey w-48 min-h-fit flex flex-wrap cursor-pointer">
+    <Link className="no-underline text-black" to={`/restaurants/${reLinkId}`}>
+      <div className="border-2 flex-start h-full shadow-inner hover:shadow-lg hover:scale-105 rounded-md border-grey w-48 min-h-fit flex flex-wrap cursor-pointer">
         <div
           className="relative w-full min-h-32 rounded-t-md bg-cover"
           style={{ backgroundImage: `url(${RES_IMG}/${reImage})` }}
@@ -62,7 +62,23 @@ export default function RestaurantCard({
           <span>{rePrice}</span>
           <span className="mb-2">{reDelTime}</span>
         </div>
-    </div>
-      </Link>
+      </div>
+    </Link>
   );
 }
+
+export const withVegCard = (ResComponent) => {
+  return (props) => {
+    return (
+      <div className="relative">
+        <label
+          className="absolute text-sm left-0 m-1  px-2 py-1 text-white rounded-full bg-green-600 z-10"
+          htmlFor=""
+        >
+          Veg Friendly
+        </label>
+        <ResComponent {...props} />
+      </div>
+    );
+  };
+};

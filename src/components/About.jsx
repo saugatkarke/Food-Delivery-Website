@@ -20,16 +20,21 @@ export default function About() {
       </div>
       <div className="flex p-5 flex-col w-1/2">
         <h2>Why to choose React and Tailwind?</h2>
-        <p>Glad you ask! Well, I have been developing the Web App for many years now. Started with wordpress where 
-         things were in PHP, when I got into building frontend, from there I was introduced with the jquery and javascript.
-         That starting wordpress site was for my uni projects where we as a team of four developed and managed for a client.
-         
+        <p>
+          Glad you ask! Well, I have been developing the Web App for many years
+          now. Started with wordpress where things were in PHP, when I got into
+          building frontend, from there I was introduced with the jquery and
+          javascript. That starting wordpress site was for my uni projects where
+          we as a team of four developed and managed for a client.
         </p>
         <h2>Why to Create a Clone a like?</h2>
-        <p>Glad you ask! Well, I have been developing the Web App for many years now. Started with wordpress where 
-         things were in PHP, when I got into building frontend there I was introduced with the jquery and javascript.
-         That starting wordpress site was for my uni projects where we as a team of four developed and managed for a client.
-         I lead the project whereas others contyributed to various aspect of the project.  
+        <p>
+          Glad you ask! Well, I have been developing the Web App for many years
+          now. Started with wordpress where things were in PHP, when I got into
+          building frontend there I was introduced with the jquery and
+          javascript. That starting wordpress site was for my uni projects where
+          we as a team of four developed and managed for a client. I lead the
+          project whereas others contyributed to various aspect of the project.
         </p>
       </div>
     </div>

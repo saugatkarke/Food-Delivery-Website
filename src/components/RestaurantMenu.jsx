@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import { useRef } from "react";
 import NonVegIcon from "../assets/widgets/NonVegIcon";
 import Spinner from "../assets/widgets/Spinner";
@@ -8,10 +9,17 @@ import { RES_IMG, OFFER_IMG, MENU_IMG } from "../utils/constant";
 
 export default function RestaurantMenu() {
   const [restMenu, resMenuHeader, resMenuOffer, resCatMenu] = useResMenu();
-  const scrollContRef = useRef();
+  const [toggleNonveg, setNonveg] = useState(false);
+  const scrollContRef = useRef();``
   const cardWidthRef = useRef();
   const menuContRef = useRef();
+  const nonVegTxt = "NONVEG";
+  const vegTxt = "VEG";
 
+  const toggleFoodType = (foodtype) => {
+
+    // setNonveg(true);
+  };
   const toggleMenu = (btnText) => {
     let menuList = [...menuContRef.current.childNodes];
     function showMenu() {
@@ -49,7 +57,7 @@ export default function RestaurantMenu() {
       });
     }
   };
-  console.log(resCatMenu);
+  // console.log(resCatMenu);
   if (restMenu.length == 0)
     return (
       <div className="bg-primary h-72 grid content-center max-w-7xl mx-auto my-2 rounded-lg">
@@ -217,6 +225,16 @@ export default function RestaurantMenu() {
       </div>
       <div className="my-12 bg-gray-50 p-8 rounded-lg bg-food-cover bg-repeat-x bg-15% bg-blend-color-burn">
         <h2 className="pb-8">Menu</h2>
+        <label htmlFor={nonVegTxt}>
+          Non Veg
+          <input
+            id={nonVegTxt}
+            type="checkbox"
+            onChange={(e) => {
+              toggleFoodType(e);
+            }}
+          />
+        </label>
         <div
           ref={menuContRef}
           className="w-[1090px]  mx-auto flex flex-col items-start"
@@ -265,7 +283,7 @@ export default function RestaurantMenu() {
                           <h4 className="flex gap-2">
                             {name}
                             <span>
-                              {itemAttribute?.vegClassifier == "VEG" ? (
+                              {itemAttribute?.vegClassifier == vegTxt ? (
                                 <VegIcon svgHeight={24} svgWidth={24} />
                               ) : (
                                 <NonVegIcon svgHeight={24} svgWidth={24} />
