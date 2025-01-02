@@ -9,14 +9,14 @@ export default {
         "food-cover": "url('/src/assets/images/food items vectors.png')",
       },
       backgroundSize: {
-        '15%': '15%',     // Custom size (example)
-        '16': '4rem',     // Another example using rem
-        'custom': '200px 100px', // Specific custom width & height
+        "15%": "15%", // Custom size (example)
+        16: "4rem", // Another example using rem
+        custom: "200px 100px", // Specific custom width & height
       },
       colors: {
         primary: "#FF5200",
         gradientOrange: "#FFA726",
-        deepOrange: "#FF7043",
+        deepOrange: "#DF5901",
         softYellow: "#FFD54F",
         lightBeige: "#FFF3E0",
         neutralDark: "#3E2723",

@@ -12,7 +12,7 @@ export default function useResMenu() {
   const nonVegTxt = "NONVEG";
   const vegTxt = "VEG";
   const { resId } = useParams();
-  console.log(resVegMenu);
+  // console.log(resVegMenu);
 
   const SWIGGY_API = `${
     import.meta.env.VITE_SWIGGY_MENU_URL
@@ -37,9 +37,9 @@ export default function useResMenu() {
     setResMenuOffer(
       jsonData?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.offers
     );
-    console.log(
-      jsonData?.data?.cards[4].groupedCard.cardGroupMap.REGULAR.cards
-    );
+    // console.log(
+    //   jsonData?.data?.cards[4].groupedCard.cardGroupMap.REGULAR.cards
+    // );
 
     setResVegMenu(() => {
       return getResCatMenu().reduce(
@@ -47,7 +47,7 @@ export default function useResMenu() {
           let filteredCatMenu = currCatMenu?.card?.card.itemCards.filter(
             (catItem) => catItem.card.info.itemAttribute.vegClassifier == vegTxt
           );
-          console.log(filteredCatMenu);
+          // console.log(filteredCatMenu);
           accCatMenu.push(filteredCatMenu);
           return accCatMenu;
         },

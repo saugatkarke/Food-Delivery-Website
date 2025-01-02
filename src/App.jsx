@@ -6,15 +6,18 @@ import About from "./components/About";
 import { createBrowserRouter, Outlet } from "react-router";
 import FetchContextProvider from "./context/FetchContext";
 import RestaurantMenu from "./components/RestaurantMenu";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
 
 function App() {
-
   return (
     <>
-      <FetchContextProvider>
-        <Header />
-        <Outlet />
-      </FetchContextProvider>
+      <Provider store={appStore}>
+        <FetchContextProvider>
+          <Header />
+          <Outlet />
+        </FetchContextProvider>
+      </Provider>
     </>
   );
 }

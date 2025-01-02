@@ -1,10 +1,11 @@
 import React from "react";
-import { useState } from "react";
+import { useSelector } from "react-redux";
 
 export default function Cart() {
-  const iconHeight = 35;
-  const iconWidth = 35;
-  const [count, setCount] = useState(0);
+  const iconHeight = 32;
+  const iconWidth = 32;
+  const cartItems = useSelector((state) => state.cart.items);
+  console.log(cartItems);
   return (
     <div className="relative">
       <img
@@ -14,7 +15,7 @@ export default function Cart() {
         width={iconWidth}
       />
       <span className="absolute text-white bg-red-600 p-[3%_20%] rounded-full -top-3 -right-3">
-        {count}
+        {cartItems.length}
       </span>
     </div>
   );

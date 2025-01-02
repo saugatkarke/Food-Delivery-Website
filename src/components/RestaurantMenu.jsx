@@ -1,48 +1,22 @@
 import React from "react";
 import { useState } from "react";
 import { useRef } from "react";
-import NonVegIcon from "../assets/widgets/NonVegIcon";
 import Spinner from "../assets/widgets/Spinner";
-import VegIcon from "../assets/widgets/VegIcon";
 import useResMenu from "../hooks/useResMenu";
-import { RES_IMG, OFFER_IMG, MENU_IMG } from "../utils/constant";
+import { RES_IMG, OFFER_IMG } from "../utils/constant";
+import RestaurantCatMenu from "./RestaurantCatMenu";
 
 export default function RestaurantMenu() {
   const [restMenu, resMenuHeader, resMenuOffer, resCatMenu] = useResMenu();
-  const [toggleNonveg, setNonveg] = useState(false);
-  const scrollContRef = useRef();``
+  const [showIndex, setShowIndex] = useState(null);
+  const [showNonVeg, setShowNonVeg] = useState(null);
+  const [showVeg, setShowVeg] = useState(null);
+  const scrollContRef = useRef();
   const cardWidthRef = useRef();
   const menuContRef = useRef();
   const nonVegTxt = "NONVEG";
   const vegTxt = "VEG";
 
-  const toggleFoodType = (foodtype) => {
-
-    // setNonveg(true);
-  };
-  const toggleMenu = (btnText) => {
-    let menuList = [...menuContRef.current.childNodes];
-    function showMenu() {
-      btnText.parentElement.nextSibling.hidden = false;
-      btnText.nextElementSibling.classList.add("rotate-180");
-    }
-
-    function hideMenu() {
-      btnText.parentElement.nextSibling.hidden = true;
-      btnText.nextElementSibling.classList.remove("rotate-180");
-    }
-
-    function hideAllMenu(currMenu) {
-      currMenu.children[1].hidden = true;
-      currMenu.children[0].children[1].classList.remove("rotate-180");
-    }
-    menuList.forEach((menu) => {
-      if (btnText.parentElement.dataset.btn !== menu.childNodes[1].dataset.cat)
-        return hideAllMenu(menu);
-      if (!btnText.parentElement.nextSibling.hidden) return hideMenu();
-      showMenu();
-    });
-  };
   const scroll = (direction) => {
     let scrollAmount = cardWidthRef.current.scrollWidth;
     if (direction == "left") {
@@ -57,7 +31,6 @@ export default function RestaurantMenu() {
       });
     }
   };
-  // console.log(resCatMenu);
   if (restMenu.length == 0)
     return (
       <div className="bg-primary h-72 grid content-center max-w-7xl mx-auto my-2 rounded-lg">
@@ -226,12 +199,22 @@ export default function RestaurantMenu() {
       <div className="my-12 bg-gray-50 p-8 rounded-lg bg-food-cover bg-repeat-x bg-15% bg-blend-color-burn">
         <h2 className="pb-8">Menu</h2>
         <label htmlFor={nonVegTxt}>
-          Non Veg
+          NonVeg
           <input
             id={nonVegTxt}
             type="checkbox"
             onChange={(e) => {
-              toggleFoodType(e);
+              setShowNonVeg(true);
+            }}
+          />
+        </label>
+        <label htmlFor={vegTxt}>
+          Veg
+          <input
+            id={vegTxt}
+            type="checkbox"
+            onChange={(e) => {
+              setShowVeg(true);
             }}
           />
         </label>
@@ -239,81 +222,21 @@ export default function RestaurantMenu() {
           ref={menuContRef}
           className="w-[1090px]  mx-auto flex flex-col items-start"
         >
-          {resCatMenu.map((catMenu) => {
-            const { title, itemCards } = catMenu?.card?.card;
+          {resCatMenu.map((catMenu, index) => {
             return (
-              <div
+              <RestaurantCatMenu
                 key={crypto.randomUUID()}
-                className="w-full mx-auto flex flex-col items-start"
-              >
-                <button
-                  onClick={(e) => {
-                    toggleMenu(e.target);
-                  }}
-                  data-btn={title}
-                  className="inline-flex w-full justify-between items-center  border-grey border-b-2"
-                >
-                  <h3 className="py-4">
-                    {title} ({itemCards.length})
-                  </h3>
-                  <span className="transition-all">▼</span>
-                </button>
-                <div
-                  key={crypto.randomUUID()}
-                  data-cat={title}
-                  className="w-full"
-                  hidden
-                >
-                  {itemCards.map((item) => {
-                    const {
-                      id,
-                      name,
-                      defaultPrice,
-                      price,
-                      imageId,
-                      description,
-                      itemAttribute,
-                    } = item?.card?.info;
-                    return (
-                      <div
-                        key={crypto.randomUUID()}
-                        className="flex w-full my-4 p-4 bg-white rounded-lg"
-                      >
-                        <div className="flex flex-col items-start w-[80%]">
-                          <h4 className="flex gap-2">
-                            {name}
-                            <span>
-                              {itemAttribute?.vegClassifier == vegTxt ? (
-                                <VegIcon svgHeight={24} svgWidth={24} />
-                              ) : (
-                                <NonVegIcon svgHeight={24} svgWidth={24} />
-                              )}
-                            </span>
-                          </h4>
-                          <p className="text-start">
-                            ₹
-                            {defaultPrice / 100
-                              ? defaultPrice / 100
-                              : price / 100}
-                          </p>
-                          <p className="text-start">
-                            <span>{description}</span>
-                          </p>
-                        </div>
-                        <div className="flex flex-col items-end w-[20%]">
-                          <img
-                            className="rounded-sm"
-                            src={MENU_IMG + "/" + imageId}
-                            alt={name + "image"}
-                            height={150}
-                            width={150}
-                          />
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
+                resCatMenu={catMenu?.card?.card}
+                showItem={index == showIndex ? true : false}
+                showVegItem={showVeg}
+                showNonVegItem={showNonVeg}
+                setShowIndex={() => {
+                  setShowIndex(index);
+                }}
+                setHideIndex={() => {
+                  setShowIndex(null);
+                }}
+              />
             );
           })}
         </div>
