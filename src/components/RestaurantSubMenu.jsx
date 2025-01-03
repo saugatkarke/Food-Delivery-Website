@@ -7,10 +7,7 @@ import { useDispatch } from "react-redux";
 
 export default function RestaurantSubMenu({ item, showNonVegItem }) {
   const dispatch = useDispatch();
-  const handleAddCart = (item) => {
-    console.log(dispatch(addItem(item)));
-    return dispatch(addItem(item));
-  };
+  const handleAddCart = (item) => dispatch(addItem(item));
   const vegTxt = "VEG";
   const { id, name, defaultPrice, price, imageId, description, itemAttribute } =
     item?.card?.info;

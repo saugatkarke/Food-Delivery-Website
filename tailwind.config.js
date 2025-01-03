@@ -16,6 +16,7 @@ export default {
       colors: {
         primary: "#FF5200",
         gradientOrange: "#FFA726",
+        dangerRed: "#FF0000",
         deepOrange: "#DF5901",
         softYellow: "#FFD54F",
         lightBeige: "#FFF3E0",

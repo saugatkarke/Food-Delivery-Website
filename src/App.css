@@ -9,3 +9,17 @@
 #menu-offer-card::-webkit-scrollbar {
   display: none;
 }
+table {
+  margin: 2rem;
+  padding: 2rem;
+}
+table > tr > td {
+  padding: 12px 8px;
+}
+table > thead > tr > th {
+  padding: 8px 8px;
+  font-size: 18px;
+}
+table > tr:nth-child(even):not(:first-child) {
+  background-color: #ebf3f9;
+}

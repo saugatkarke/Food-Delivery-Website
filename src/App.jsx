@@ -3,6 +3,7 @@ import Body from "./components/Body";
 import Header from "./components/Header";
 import Error from "./components/Error";
 import About from "./components/About";
+import Cart from "./components/Cart";
 import { createBrowserRouter, Outlet } from "react-router";
 import FetchContextProvider from "./context/FetchContext";
 import RestaurantMenu from "./components/RestaurantMenu";
@@ -29,6 +30,7 @@ export const appRouter = createBrowserRouter([
       { path: "/", element: <Body /> },
       { path: "/about", element: <About /> },
       { path: "/restaurants/:resId", element: <RestaurantMenu /> },
+      { path: "/cart/", element: <Cart /> },
     ],
     errorElement: <Error />,
   },

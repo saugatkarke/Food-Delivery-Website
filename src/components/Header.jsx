@@ -1,7 +1,7 @@
 import React from "react";
 import Location from "./Location";
 import SearchBox from "./SearchBox";
-import Cart from "./Cart";
+import CartIcon from "./CartIcon";
 import { LOGO_PNG } from "../utils/constant";
 import AppNav from "./AppNav";
 import { useContext } from "react";
@@ -24,7 +24,7 @@ export default function Header() {
             <AppNav />
             <Location />
             <SearchBox />
-            <Cart />
+            <CartIcon />
           </div>
         </div>
       </div>
