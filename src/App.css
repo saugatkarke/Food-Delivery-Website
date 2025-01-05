@@ -9,6 +9,10 @@
 #menu-offer-card::-webkit-scrollbar {
   display: none;
 }
+label{
+  font-size: 24px;
+  font-weight: 600;
+}
 table {
   margin: 2rem;
   padding: 2rem;

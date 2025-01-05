@@ -4,8 +4,6 @@ import SearchBox from "./SearchBox";
 import CartIcon from "./CartIcon";
 import { LOGO_PNG } from "../utils/constant";
 import AppNav from "./AppNav";
-import { useContext } from "react";
-import { useFetchContext } from "../context/FetchContext";
 
 export default function Header() {
   const logoHeight = 50;

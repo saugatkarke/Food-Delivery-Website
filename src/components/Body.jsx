@@ -1,9 +1,13 @@
+import { useEffect } from "react";
 import RestaurantCard, { withVegCard } from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { useFetchContext } from "../context/FetchContext";
 
 export default function Body() {
-  const { filteredRes: resData } = useFetchContext();
+  const { filteredRes: resData, resApiData, setFilteredRes } = useFetchContext();
+  useEffect(() => {
+    setFilteredRes(resApiData);
+  }, [resApiData]);
   const RestaurantVegCard = withVegCard(RestaurantCard);
   return resData.length == 0 ? (
     <Shimmer />

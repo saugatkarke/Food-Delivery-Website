@@ -9,6 +9,7 @@ import FetchContextProvider from "./context/FetchContext";
 import RestaurantMenu from "./components/RestaurantMenu";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
+import Contact from "./components/Contact";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ export const appRouter = createBrowserRouter([
       { path: "/about", element: <About /> },
       { path: "/restaurants/:resId", element: <RestaurantMenu /> },
       { path: "/cart/", element: <Cart /> },
+      { path: "/contact/", element: <Contact /> },
     ],
     errorElement: <Error />,
   },

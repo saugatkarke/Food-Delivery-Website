@@ -4,7 +4,7 @@ export default function About() {
   return (
     <div>
       <div className="bg-primary h-96 grid content-center">
-        <h1 className="text-white text-6xl">About Us</h1>
+        <h1 className="text-white text-6xl">About App</h1>
         <h2 className="text-white italic">
           "A food ordering app inspired by Swiggy"
         </h2>

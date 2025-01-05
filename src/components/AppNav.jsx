@@ -29,7 +29,7 @@ export default function AppNav() {
             <line x1="16" y1="12" x2="20" y2="12"></line>
             <line x1="18" y1="10" x2="18" y2="14"></line>
           </svg>
-          About Us
+          About App
         </span>
       </NavLink>
       <NavLink to="/help" end className={toggleActive}>
