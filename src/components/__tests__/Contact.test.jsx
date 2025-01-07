@@ -5,6 +5,6 @@ import "@testing-library/jest-dom";
 
 test("Contact form should be in DOM", () => {
   render(<Contact />);
-  const heading = screen.getByRole("heading");
+  const heading = screen.getByRole("button");
   expect(heading).toBeInTheDocument();
 });
