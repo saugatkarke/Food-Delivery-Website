@@ -1,65 +1,151 @@
 {
-  "info": {
-    "id": "765152",
-    "name": "Pizza Hut",
-    "cloudinaryImageId": "RX_THUMBNAIL/IMAGES/VENDOR/2024/7/18/95189a93-5dc8-49ea-9a4b-986687ddc7a8_765152.jpg",
-    "locality": "Pimpri chinchwad",
-    "areaName": "Punawale",
-    "costForTwo": "₹350 for two",
-    "cuisines": ["Pizzas"],
-    "avgRating": 4.1,
-    "parentId": "721",
-    "avgRatingString": "4.1",
-    "totalRatingsString": "1.4K+",
-    "sla": {
-      "deliveryTime": 39,
-      "lastMileTravel": 6.5,
-      "serviceability": "SERVICEABLE",
-      "slaString": "35-40 mins",
-      "lastMileTravelString": "6.5 km",
-      "iconType": "ICON_TYPE_EMPTY"
-    },
-    "availability": {
-      "nextCloseTime": "2025-01-08 02:00:00",
-      "opened": true
-    },
-    "badges": {},
-    "isOpen": true,
-    "type": "F",
-    "badgesV2": {
-      "entityBadges": {
-        "imageBased": {},
-        "textBased": {},
-        "textExtendedBadges": {}
+  "data": {
+    "cards": [
+      { "card": {} },
+      {
+        "card": {
+          "card": {
+            "gridElements": {
+              "infoWithStyle": {
+                "restaurants": [
+                  {
+                    "info": {
+                      "id": "765152",
+                      "name": "Pizza Hut",
+                      "cloudinaryImageId": "RX_THUMBNAIL/IMAGES/VENDOR/2024/7/18/95189a93-5dc8-49ea-9a4b-986687ddc7a8_765152.jpg",
+                      "locality": "Pimpri chinchwad",
+                      "areaName": "Punawale",
+                      "costForTwo": "₹350 for two",
+                      "cuisines": ["Pizzas"],
+                      "avgRating": 4.1,
+                      "parentId": "721",
+                      "avgRatingString": "4.1",
+                      "totalRatingsString": "1.5K+",
+                      "sla": {
+                        "deliveryTime": 46,
+                        "lastMileTravel": 6.5,
+                        "serviceability": "SERVICEABLE",
+                        "slaString": "45-50 mins",
+                        "lastMileTravelString": "6.5 km",
+                        "iconType": "ICON_TYPE_EMPTY"
+                      },
+                      "availability": {
+                        "nextCloseTime": "2025-01-12 02:00:00",
+                        "opened": true
+                      },
+                      "badges": {},
+                      "isOpen": true,
+                      "type": "F",
+                      "badgesV2": {
+                        "entityBadges": {
+                          "imageBased": {},
+                          "textBased": {},
+                          "textExtendedBadges": {}
+                        }
+                      },
+                      "aggregatedDiscountInfoV3": {
+                        "header": "₹300 OFF",
+                        "subHeader": "ABOVE ₹1699",
+                        "discountTag": "FLAT DEAL"
+                      },
+                      "differentiatedUi": {
+                        "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+                        "differentiatedUiMediaDetails": {
+                          "lottie": {},
+                          "video": {}
+                        }
+                      },
+                      "reviewsSummary": {},
+                      "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+                      "restaurantOfferPresentationInfo": {},
+                      "externalRatings": {
+                        "aggregatedRating": {
+                          "rating": "--"
+                        }
+                      },
+                      "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
+                    },
+                    "analytics": {
+                      "context": "seo-data-a59dcd3d-2936-40be-807f-c01108ef6513"
+                    },
+                    "cta": {
+                      "link": "https://www.swiggy.com/city/pune/pizza-hut-pimpri-chinchwad-punawale-rest765152",
+                      "type": "WEBLINK"
+                    }
+                  },
+                  {
+                    "info": {
+                      "id": "323526",
+                      "name": "Chinese Wok",
+                      "cloudinaryImageId": "e0839ff574213e6f35b3899ebf1fc597",
+                      "locality": "Chinchwad",
+                      "areaName": "Chinchwad",
+                      "costForTwo": "₹300 for two",
+                      "cuisines": ["Chinese", "Asian", "Tibetan", "Desserts"],
+                      "avgRating": 4.1,
+                      "parentId": "61955",
+                      "avgRatingString": "4.1",
+                      "totalRatingsString": "6.2K+",
+                      "sla": {
+                        "deliveryTime": 71,
+                        "lastMileTravel": 11.3,
+                        "serviceability": "SERVICEABLE",
+                        "slaString": "70-75 mins",
+                        "lastMileTravelString": "11.3 km",
+                        "iconType": "ICON_TYPE_EMPTY"
+                      },
+                      "availability": {
+                        "nextCloseTime": "2025-01-11 23:00:00",
+                        "opened": true
+                      },
+                      "badges": {},
+                      "isOpen": true,
+                      "type": "F",
+                      "badgesV2": {
+                        "entityBadges": {
+                          "imageBased": {},
+                          "textBased": {},
+                          "textExtendedBadges": {}
+                        }
+                      },
+                      "aggregatedDiscountInfoV3": {
+                        "header": "ITEMS",
+                        "subHeader": "AT ₹149"
+                      },
+                      "differentiatedUi": {
+                        "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+                        "differentiatedUiMediaDetails": {
+                          "lottie": {},
+                          "video": {}
+                        }
+                      },
+                      "reviewsSummary": {},
+                      "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+                      "restaurantOfferPresentationInfo": {},
+                      "externalRatings": {
+                        "aggregatedRating": {
+                          "rating": "2.8",
+                          "ratingCount": "101"
+                        },
+                        "source": "GOOGLE",
+                        "sourceIconImageId": "v1704440323/google_ratings/rating_google_tag"
+                      },
+                      "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
+                    },
+                    "analytics": {
+                      "context": "seo-data-a59dcd3d-2936-40be-807f-c01108ef6513"
+                    },
+                    "cta": {
+                      "link": "https://www.swiggy.com/city/pune/chinese-wok-chinchwad-rest323526",
+                      "type": "WEBLINK"
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
       }
-    },
-    "aggregatedDiscountInfoV3": {
-      "header": "₹300 OFF",
-      "subHeader": "ABOVE ₹1699",
-      "discountTag": "FLAT DEAL"
-    },
-    "differentiatedUi": {
-      "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-      "differentiatedUiMediaDetails": {
-        "lottie": {},
-        "video": {}
-      }
-    },
-    "reviewsSummary": {},
-    "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-    "restaurantOfferPresentationInfo": {},
-    "externalRatings": {
-      "aggregatedRating": {
-        "rating": "--"
-      }
-    },
-    "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
-  },
-  "analytics": {
-    "context": "seo-data-75dd5e5e-0673-40e4-bb61-7581dc2383c4"
-  },
-  "cta": {
-    "link": "https://www.swiggy.com/city/pune/pizza-hut-pimpri-chinchwad-punawale-rest765152",
-    "type": "WEBLINK"
+    ]
   }
 }

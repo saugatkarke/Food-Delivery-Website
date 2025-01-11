@@ -12,7 +12,11 @@ export default function RestaurantCard({
   reLinkId,
 }) {
   return (
-    <Link className="no-underline text-black" to={`/restaurants/${reLinkId}`}>
+    <Link
+      data-testid="resCard"
+      className="no-underline text-black"
+      to={`/restaurants/${reLinkId}`}
+    >
       <div className="border-2 flex-start h-full shadow-inner hover:shadow-lg hover:scale-105 rounded-md border-grey w-48 min-h-fit flex flex-wrap cursor-pointer">
         <div
           className="relative w-full min-h-32 rounded-t-md bg-cover"

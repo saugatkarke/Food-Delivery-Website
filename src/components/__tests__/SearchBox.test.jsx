@@ -1,9 +1,9 @@
-import { getByPlaceholderText, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { act } from "react";
-import { describe, expect, test, vi } from "vitest";
+import { describe, expect, vi } from "vitest";
 import "@testing-library/jest-dom";
 import SearchBox from "../SearchBox";
-import { BrowserRouter } from "react-router";
+import { BrowserRouter} from "react-router";
 import RES_API_DATA from "../../components/mocks/resApi.json";
 import FetchContextProvider from "../../context/FetchContext";
 
@@ -43,5 +43,21 @@ describe("Searchbox Should Render", () => {
     );
     const searchBox = screen.getByRole("searchbox");
     expect(searchBox).toHaveValue("");
+  });
+  it("should load one card for search text kfc", async () => {
+    await act(async () =>
+      render(
+        <BrowserRouter>
+          <FetchContextProvider>
+            <SearchBox />
+          </FetchContextProvider>
+        </BrowserRouter>
+      )
+    );
+    const searchBox = screen.getByRole("searchbox");
+    const searchBtn = screen.getByRole("button", { name: "Search" });
+    fireEvent.change(searchBox, { target: { value: "kfc" } });
+    fireEvent.click(searchBtn);
+    expect(searchBox).toBeInTheDocument();
   });
 });

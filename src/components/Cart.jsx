@@ -20,8 +20,8 @@ export default function Cart() {
       <div className="bg-primary h-52 mx-auto content-center">
         <h1 className="text-white">Your CART</h1>
       </div>
-      {cartItems.length == 0 ? (
-        <div className="mx-auto content-center">
+      {cartItems?.length == 0 ? (
+        <div key={crypto.randomUUID()} className="mx-auto content-center">
           <img
             src={CART_IMG}
             height={400}
@@ -47,11 +47,15 @@ export default function Cart() {
               <th className="text-center">Price</th>
             </tr>
           </thead>
-          {cartItems.map((item) => {
+          {cartItems?.map((item) => {
             const { name, description, price, imageId } = item?.card?.info;
             return (
               <>
-                <tr key={crypto.randomUUID()} className="bg-gray-50 text-left">
+                <tr
+                  data-testid="cartItems"
+                  key={crypto.randomUUID()}
+                  className="bg-gray-50 text-left"
+                >
                   <td className="flex items-center gap-8">
                     <div className="w-3/4">
                       <strong>{name}</strong>

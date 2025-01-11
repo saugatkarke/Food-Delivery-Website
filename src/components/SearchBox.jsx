@@ -8,7 +8,7 @@ export default function SearchBox() {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     setFilteredRes(
-      resData.filter((searchRes) =>
+      resData?.filter((searchRes) =>
         searchRes.info.name.toLowerCase().includes(searchInput.toLowerCase())
       )
     );

@@ -222,7 +222,7 @@ export default function RestaurantMenu() {
           ref={menuContRef}
           className="w-[1090px]  mx-auto flex flex-col items-start"
         >
-          {resCatMenu.map((catMenu, index) => {
+          {resCatMenu?.map((catMenu, index) => {
             return (
               <RestaurantCatMenu
                 key={crypto.randomUUID()}

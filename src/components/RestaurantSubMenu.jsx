@@ -13,6 +13,7 @@ export default function RestaurantSubMenu({ item, showNonVegItem }) {
     item?.card?.info;
   return (
     <div
+      data-testid="resMenus"
       key={crypto.randomUUID()}
       className="flex w-full my-4 p-4 bg-white rounded-lg"
     >
@@ -34,6 +35,7 @@ export default function RestaurantSubMenu({ item, showNonVegItem }) {
           <span>{description}</span>
         </p>
         <button
+          data-testid="resAddCart"
           data-itemname={name}
           onClick={() => handleAddCart(item)}
           className="bg-primary text-white text-lg rounded-full px-4 py-1 my-2 hover:bg-deepOrange"

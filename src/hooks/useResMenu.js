@@ -25,9 +25,10 @@ export default function useResMenu() {
   const fetchMenuData = async () => {
     const data = await fetch(`${SWIGGY_API}`);
     const jsonData = await data.json();
+    // console.log(jsonData);
 
     const getResCatMenu = () => {
-      return (jsonData?.data?.cards[4].groupedCard.cardGroupMap.REGULAR.cards).filter(
+      return (jsonData?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards).filter(
         (mainMenu) => mainMenu?.card?.card["@type"] == TYPE_CATEGORY
       );
     };
@@ -37,9 +38,6 @@ export default function useResMenu() {
     setResMenuOffer(
       jsonData?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.offers
     );
-    // console.log(
-    //   jsonData?.data?.cards[4].groupedCard.cardGroupMap.REGULAR.cards
-    // );
 
     setResVegMenu(() => {
       return getResCatMenu().reduce(

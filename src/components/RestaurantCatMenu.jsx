@@ -28,6 +28,7 @@ export default function RestaurantCatMenu({
           if (!showItem) return setShowIndex();
           setHideIndex();
         }}
+        data-testid="menuBtn"
         data-btn={title}
         className="inline-flex w-full justify-between items-center  border-grey border-b-2"
       >
@@ -46,7 +47,7 @@ export default function RestaurantCatMenu({
             ? toggleSubMenu(vegTxt).map((itemCard) => (
                 <RestaurantSubMenu key={crypto.randomUUID()} item={itemCard} />
               ))
-            : itemCards.map((itemCard) => {
+            : itemCards?.map((itemCard) => {
                 return (
                   <RestaurantSubMenu
                     key={crypto.randomUUID()}
