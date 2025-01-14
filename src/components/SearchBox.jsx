@@ -14,7 +14,7 @@ export default function SearchBox() {
     );
   };
   return (
-    <form className="w-[28%] mx-auto" onSubmit={handleFormSubmit}>
+    <form className="sm:w-[28%] w-[90%] sm:mx-auto" onSubmit={handleFormSubmit}>
       <label
         htmlFor="default-search"
         className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"

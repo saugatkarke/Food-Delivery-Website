@@ -9,9 +9,9 @@ export default {
         "food-cover": "url('/src/assets/images/food items vectors.png')",
       },
       backgroundSize: {
-        "15%": "15%", // Custom size (example)
-        16: "4rem", // Another example using rem
-        custom: "200px 100px", // Specific custom width & height
+        "15%": "15%", 
+        16: "4rem", 
+        custom: "200px 100px", 
       },
       colors: {
         primary: "#FF5200",

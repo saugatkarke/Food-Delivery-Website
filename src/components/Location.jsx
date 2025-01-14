@@ -13,17 +13,14 @@ export default function Location() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
-          //   console.log(position.coords.latitude);
-          //   console.log(position.coords.longitude);
           fetch(
             `${GEO_REQ_URL}&lat=${position.coords.latitude}&lon=${position.coords.longitude}&format=json`
           )
             .then((response) => response.json())
             .then((result) => {
               setLocation(
-                `${result?.results[0]?.address_line1}, ${result?.results[0]?.city}, ${result?.results[0]?.postcode}`
+                `${result?.results[0]?.address_line1}, ${result?.results[0]?.city}`
               );
-              //   console.log(result);
             })
             .catch((error) => console.log("error", error));
         },
