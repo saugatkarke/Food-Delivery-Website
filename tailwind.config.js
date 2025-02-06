@@ -3,15 +3,29 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      screens: {
+        rd: "1250px",
+        xsm: "416px",
+      },
       backgroundImage: {
         "linear-gradient-black-transparent":
           "linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%)",
         "food-cover": "url('/src/assets/images/food items vectors.png')",
+        "about-cover":
+          "url('/src/assets/images/css-pattern-by-magicpattern.png')",
+        "vite-cover":
+          "url('/src/assets/images/fast-bg.png')",
+        "react-cover":
+          "url('/src/assets/images/react-bg.png')",
+        "tailwind-cover":
+          "url('/src/assets/images/tailwind-bg.png')",
+        "foodie-grad":
+          "linear-gradient(to bottom right, #fcd34d 0%, #fb923c 50%, #f87171 100%)",
       },
       backgroundSize: {
-        "15%": "15%", 
-        16: "4rem", 
-        custom: "200px 100px", 
+        "15%": "15%",
+        16: "4rem",
+        custom: "200px 100px",
       },
       colors: {
         primary: "#FF5200",
@@ -21,6 +35,7 @@ export default {
         softYellow: "#FFD54F",
         lightBeige: "#FFF3E0",
         neutralDark: "#3E2723",
+        tpGrey: "#676767c4",
       },
       scrollbar: {
         hidden: {

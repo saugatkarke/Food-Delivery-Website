@@ -3,10 +3,10 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router";
 
 export default function CartIcon() {
-  const iconHeight = 32;
-  const iconWidth = 32;
+  const iconHeight = 34;
+  const iconWidth = 34;
   const cartItems = useSelector((state) => state.cart.items);
-  console.log(cartItems);
+  // console.log(cartItems);
   return (
     <Link to="/cart/">
       <div className="relative">

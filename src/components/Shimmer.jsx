@@ -8,7 +8,7 @@ export default function Shimmer() {
     shimmerComponents.push(
       <div
         key={i}
-        className="border-2 shadow-inner rounded-md border-grey w-48 min-h-fit flex flex-wrap cursor-pointer"
+        className="no-underline text-black xsm:max-w-64 sm:max-w-60 w-full border-2 shadow-inner rounded-md border-grey min-h-fit flex flex-wrap cursor-pointer"
       >
         <div className="relative w-full min-h-32 rounded-t-md bg-cover bg-slate-100 mb-1">
           <div className="absolute bottom-0 px-2 w-full flex items-end justify-between  rounded-t-md">
@@ -30,12 +30,11 @@ export default function Shimmer() {
   }
   return (
     <>
-      <div
-        id="foodie-body"
-        className="mx-auto py-3 flex flex-col items-start gap-3"
-      >
-        <h2>Restaurants Near You</h2>
-        <div className="flex gap-3 flex-wrap">{shimmerComponents}</div>
+      <div id="foodie-body" className="mx-auto p-3 grid items-start gap-3">
+        <h2 className="text-left">Restaurants Near You</h2>
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(12rem,1fr))] gap-2">
+          {shimmerComponents}
+        </div>
       </div>
     </>
   );

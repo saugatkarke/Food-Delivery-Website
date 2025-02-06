@@ -16,12 +16,12 @@ export default function Body() {
   return resData?.length == 0 ? (
     <Shimmer />
   ) : (
-    <div
-      id="foodie-body"
-      className="mx-auto py-3 flex flex-col items-start gap-3"
-    >
-      <h2>Restaurants Near You</h2>
-      <div id="res-container" className="flex gap-3 flex-wrap">
+    <div id="foodie-body" className="mx-auto p-3 grid items-start gap-3">
+      <h2 className="text-left">Restaurants Near You</h2>
+      <div
+        id="res-container"
+        className="grid grid-cols-[repeat(auto-fit,minmax(12rem,1fr))] gap-2"
+      >
         {resData?.map((res) => {
           return res.info.veg ? (
             <RestaurantVegCard

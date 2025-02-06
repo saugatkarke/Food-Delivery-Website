@@ -14,16 +14,16 @@ export default function RestaurantCard({
   return (
     <Link
       data-testid="resCard"
-      className="no-underline text-black"
+      className="no-underline text-black xsm:max-w-64 sm:max-w-60 w-full"
       to={`/restaurants/${reLinkId}`}
     >
-      <div className="border-2 flex-start h-full shadow-inner hover:shadow-lg hover:scale-105 rounded-md border-grey w-48 min-h-fit flex flex-wrap cursor-pointer">
+      <div className="border-2 flex-start h-full shadow-inner hover:shadow-lg hover:scale-105 rounded-md border-grey w-[100%] min-h-fit flex flex-wrap cursor-pointer">
         <div
           className="relative w-full min-h-32 rounded-t-md bg-cover"
           style={{ backgroundImage: `url(${RES_IMG}/${reImage})` }}
         >
           <div className="absolute bottom-0 px-2 w-full flex items-end justify-between bg-gradient-to-t from-black to-transparent rounded-t-md">
-            <h3 className="text-white text-left">{reName}</h3>
+            <h3 className="text-white text-left line-clamp-2">{reName}</h3>
 
             <p className="text-white flex items-center">
               <svg
@@ -74,9 +74,9 @@ export default function RestaurantCard({
 export const withVegCard = (ResComponent) => {
   return (props) => {
     return (
-      <div className="relative">
+      <div className="relative lg:max-w-60 w-full">
         <label
-          className="absolute text-sm left-0 m-1  px-2 py-1 text-white rounded-full bg-green-600 z-10"
+          className="absolute text-sm left-0 m-2  px-2 py-1 text-white rounded-full bg-green-600 z-10"
           htmlFor=""
         >
           Veg Friendly

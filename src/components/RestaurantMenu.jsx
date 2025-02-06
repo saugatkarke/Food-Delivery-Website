@@ -33,40 +33,44 @@ export default function RestaurantMenu() {
   };
   if (restMenu.length == 0)
     return (
-      <div className="bg-primary h-72 grid content-center max-w-7xl mx-auto my-2 rounded-lg">
-        <Spinner />
+      <div className="mx-auto max-w-7xl my-2 p-4">
+        <div className="bg-primary my-3 h-72 grid content-center max-w-7xl mx-auto rounded-lg">
+          <Spinner />
+        </div>
       </div>
     );
 
   return (
     <div className="mx-auto max-w-7xl my-2 p-4">
       <div className="relative">
-        <div
-          className="absolute bg-[position-y:10%] top-0 left-auto right-0 h-[100%] w-[30%] bg-no-repeat bg-cover rounded-e-lg"
-          style={{
-            backgroundImage: `url(${RES_IMG}/${resMenuHeader.cloudinaryImageId})`,
-          }}
-        ></div>
-        <div className="bg-primary min-h-72 px-16 py-8 grid grid-cols-3 content-center gap-1 rounded-lg">
-          <div className="grid justify-items-start">
-            <h1 className="text-white text-5xl text-left animate-fade-in-up">
-              {resMenuHeader.name}
-            </h1>
-            <p className="text-white animate-fade-in-up">
-              {resMenuHeader.cuisines?.map((cus, index) => {
-                if (resMenuHeader.cuisines.length - 1 != index)
-                  return cus + "," + " ";
-                return cus;
-              })}
-            </p>
-            <strong>
-              <p className="bg-white my-2 px-4 py-1 rounded-full animate-fade-in-up">
-                {resMenuHeader.sla.slaString}
+        <div className="bg-primary min-h-72 px-4 sm:px-16 w-full py-8 grid lg:grid-cols-3 content-center gap-1 rounded-lg">
+          <div className="grid sm:grid-cols-2 justify-items-start justify-center">
+            <div className="self-center">
+              <h1 className="text-white text-5xl sm:text-left animate-fade-in-up">
+                {resMenuHeader.name}
+              </h1>
+              <p className="text-white animate-fade-in-up lg:text-center sm:text-left">
+                {resMenuHeader.cuisines?.map((cus, index) => {
+                  if (resMenuHeader.cuisines.length - 1 != index)
+                    return cus + "," + " ";
+                  return cus;
+                })}
               </p>
-            </strong>
+              <strong>
+                <p className="bg-white my-2 px-4 py-1 rounded-full animate-fade-in-up">
+                  {resMenuHeader.sla.slaString}
+                </p>
+              </strong>
+            </div>
+            <div
+              className="lg:absolute justify-self-center sm:justify-self-end bg-[position-y:10%] top-0 lg:left-auto right-0 sm:h-[12rem] lg:h-[100%] h-[10rem] lg:w-[30%] sm:w-[70%] w-full bg-no-repeat bg-cover rounded-md lg:rounded-e-lg"
+              style={{
+                backgroundImage: `url(${RES_IMG}/${resMenuHeader.cloudinaryImageId})`,
+              }}
+            ></div>
           </div>
-          <div className="grid w-11/12 justify-items-center border-x-white border-x-2">
-            <p className="text-white flex items-center flex-wrap justify-center animate-fade-in-up">
+          <div className="grid lg:w-11/12 justify-items-center lg:border-x-white lg:border-t-0 lg:border-x-2 border-t-2 border-t-white">
+            <p className="text-white py-1 flex items-center flex-wrap justify-center animate-fade-in-up">
               <svg
                 width="24"
                 height="24"
@@ -99,7 +103,7 @@ export default function RestaurantMenu() {
                 </defs>
                 {"some"}
               </svg>
-              {resMenuHeader.avgRating}({resMenuHeader.totalRatingsString}) ♦︎
+              {resMenuHeader.avgRating}({resMenuHeader.totalRatingsString})
               <span className="text-white">{resMenuHeader.areaName}</span>
             </p>
             <h2 className="text-white italic animate-pulse-3 duration-75">
@@ -198,7 +202,7 @@ export default function RestaurantMenu() {
       </div>
       <div className="my-12 bg-gray-50 p-8 rounded-lg bg-food-cover bg-repeat-x bg-15% bg-blend-color-burn">
         <h2 className="pb-8">Menu</h2>
-        <label htmlFor={nonVegTxt}>
+        {/* <label htmlFor={nonVegTxt}>
           NonVeg
           <input
             id={nonVegTxt}
@@ -217,10 +221,10 @@ export default function RestaurantMenu() {
               setShowVeg(true);
             }}
           />
-        </label>
+        </label> */}
         <div
           ref={menuContRef}
-          className="w-[1090px]  mx-auto flex flex-col items-start"
+          className="max-w-[1090px] w-full mx-auto flex flex-col items-start"
         >
           {resCatMenu?.map((catMenu, index) => {
             return (

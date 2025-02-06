@@ -6,17 +6,17 @@ import { CloseXicon } from "../assets/icons/Icon";
 
 export default function MobileNavBox({ showMobileMenu, toggleMenu }) {
   const logoHeight = 90;
-  const logoWidth = 310;
+  const logoWidth = 220;
 
   const closeMobileMenu = () => {
     toggleMenu(false);
   };
   return (
-    <div className="sm:hidden absolute z-50">
+    <div className="lg:hidden absolute z-50">
       <div
         className={`${
-          showMobileMenu ? "left-0" : "left-[-100vw]"
-        } transition-all min-h-screen shadow-[47px_3px_20px_10px_#c1cad4b0] fixed top-0 w-[90%] bg-[#ECF5FF] px-7`}
+          showMobileMenu ? "left-0" : "left-[-110vw]"
+        } transition-all max-w-sm min-h-screen shadow-[47px_3px_20px_10px_#c1cad4b0] fixed top-0 w-[90%] bg-[#ECF5FF] px-7`}
       >
         <div
           className="absolute right-6 top-8 scale-125"

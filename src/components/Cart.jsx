@@ -14,7 +14,6 @@ export default function Cart() {
     acc = acc + curr?.card?.info?.price;
     return acc;
   };
-  console.log(cartItems.reduce(getTotal, 0));
   return (
     <>
       <div className="bg-primary h-52 mx-auto content-center">
@@ -38,25 +37,25 @@ export default function Cart() {
       ) : (
         <table
           key={crypto.randomUUID()}
-          className="mx-auto min-w-[300px] max-w-[1200px] border border-collapse"
+          className="mx-auto justify-center min-w-[300px] max-w-[1200px] border border-collapse"
         >
           <thead>
             <tr className="text-left text-lg">
-              <th>Items</th>
+              <th className="p-4">Items</th>
               <th className="text-center">Quantity</th>
               <th className="text-center">Price</th>
             </tr>
           </thead>
-          {cartItems?.map((item) => {
-            const { name, description, price, imageId } = item?.card?.info;
-            return (
-              <>
+          <tbody>
+            {cartItems?.map((item) => {
+              const { name, description, price, imageId } = item?.card?.info;
+              return (
                 <tr
                   data-testid="cartItems"
                   key={crypto.randomUUID()}
                   className="bg-gray-50 text-left"
                 >
-                  <td className="flex items-center gap-8">
+                  <td className="flex items-center gap-8 p-4">
                     <div className="w-3/4">
                       <strong>{name}</strong>
                       <br />
@@ -77,26 +76,26 @@ export default function Cart() {
                     ₹{price / 100}
                   </td>
                 </tr>
-              </>
-            );
-          })}
-          <tr>
-            <td className="w-1/8 text-lg font-bold text-left">Total</td>
-            <td></td>
-            <td className="w-1/6 text-lg text-center font-bold">
-              ₹{cartItems.reduce(getTotal, 0) / 100}
-            </td>
-          </tr>
-          <tr>
-            <td colSpan={3} className="text-left">
-              <button
-                onClick={handleClearCart}
-                className="bg-dangerRed text-white text-lg rounded-full px-4 py-1 my-2 hover:bg-deepOrange hover:cursor-pointer"
-              >
-                Clear Cart
-              </button>
-            </td>
-          </tr>
+              );
+            })}
+            <tr>
+              <td className="w-1/8 text-lg font-bold text-left p-4">Total</td>
+              <td></td>
+              <td className="w-1/6 text-lg text-center font-bold">
+                ₹{cartItems.reduce(getTotal, 0) / 100}
+              </td>
+            </tr>
+            <tr>
+              <td colSpan={3} className="text-left px-2">
+                <button
+                  onClick={handleClearCart}
+                  className="bg-dangerRed text-white text-lg rounded-full px-4 py-1 my-2 hover:bg-deepOrange hover:cursor-pointer"
+                >
+                  Clear Cart
+                </button>
+              </td>
+            </tr>
+          </tbody>
         </table>
       )}
     </>

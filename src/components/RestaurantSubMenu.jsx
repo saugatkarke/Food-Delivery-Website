@@ -4,10 +4,18 @@ import VegIcon from "../assets/widgets/VegIcon";
 import NonVegIcon from "../assets/widgets/NonVegIcon";
 import { addItem } from "../utils/slices/cartSlice";
 import { useDispatch } from "react-redux";
+import { useState } from "react";
 
 export default function RestaurantSubMenu({ item, showNonVegItem }) {
+  const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
-  const handleAddCart = (item) => dispatch(addItem(item));
+  const handleAddCart = (item) => {
+    setIsLoading(true);
+    dispatch(addItem(item));
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 200);
+  };
   const vegTxt = "VEG";
   const { id, name, defaultPrice, price, imageId, description, itemAttribute } =
     item?.card?.info;
@@ -35,12 +43,13 @@ export default function RestaurantSubMenu({ item, showNonVegItem }) {
           <span>{description}</span>
         </p>
         <button
+          disabled={isLoading ? true : false}
           data-testid="resAddCart"
           data-itemname={name}
           onClick={() => handleAddCart(item)}
-          className="bg-primary text-white text-lg rounded-full px-4 py-1 my-2 hover:bg-deepOrange"
+          className="bg-primary disabled:bg-neutral-500 text-white text-lg rounded-full px-4 py-1 my-2 hover:bg-deepOrange"
         >
-          Add to Cart
+          {isLoading ? "Adding.." : "Add to Cart"}
         </button>
       </div>
       <div className="flex flex-col items-end w-[20%]">
