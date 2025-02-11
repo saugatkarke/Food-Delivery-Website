@@ -82,7 +82,7 @@ export default function ContactForm() {
           type="email"
           name="email"
           placeholder="Email Address"
-          className="block w-1/2 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="block sm:w-1/2 w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           required
         />
       </div>
@@ -93,7 +93,7 @@ export default function ContactForm() {
           defaultValue="selectone"
           onChange={handleInputs}
           name="reason"
-          className="w-1/2 block p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="sm:w-1/2 w-full block p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
         >
           <option value="selectone">Select one</option>
           <option value="hire">To Hire</option>
@@ -142,7 +142,7 @@ export default function ContactForm() {
       <button
         disabled={loading || status ? true : false}
         type="submit"
-        className="block text-2xl w-1/4 p-4 disabled:bg-blue-300 bg-blue-500 justify-self-end text-white rounded-full hover:bg-blue-600 transition"
+        className="block text-2xl w-full px-5 py-2 justify-self-start sm:w-1/4 sm:px-4 sm:py-4 disabled:bg-blue-300 bg-blue-500 sm:justify-self-end text-white rounded-full hover:bg-blue-600 transition"
       >
         {loading ? <SpinnerIcon /> : "Submit"}
       </button>

@@ -25,8 +25,8 @@ export default function RestaurantSubMenu({ item, showNonVegItem }) {
       key={crypto.randomUUID()}
       className="flex w-full my-4 p-4 bg-white rounded-lg"
     >
-      <div className="flex flex-col items-start w-[80%]">
-        <h4 className="flex gap-2">
+      <div className="flex flex-col items-start w-[70%] sm:w-[80%]">
+        <h4 className="flex gap-2 text-left">
           {name}
           <span>
             {itemAttribute?.vegClassifier == vegTxt ? (
@@ -52,7 +52,7 @@ export default function RestaurantSubMenu({ item, showNonVegItem }) {
           {isLoading ? "Adding.." : "Add to Cart"}
         </button>
       </div>
-      <div className="flex flex-col items-end w-[20%]">
+      <div className="flex flex-col items-end w-[30%] sm:w-[20%]">
         <img
           className="rounded-sm"
           src={MENU_IMG + "/" + imageId}

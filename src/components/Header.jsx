@@ -12,17 +12,17 @@ import MobileNavBox from "./MobileNavBox";
 export default function Header() {
   const [showMenu, setShowMenu] = useState(false);
   const logoHeight = 70;
-  const logoWidth = 250;
+  const logoWidth = "100%";
   const handleMenuToggle = () => {
     if (!showMenu) return setShowMenu(true);
     setShowMenu(false);
   };
   return (
     <>
-      <div className="border-b-2 border-lightgrey p-3">
+      <div className="border-b-2 border-lightgrey p-1 lg:p-3">
         <div
           id="header"
-          className="p-2 sm:p-1 flex align-middle items-center mx-auto justify-between"
+          className="px-2 lg:p-1 gap-2 flex align-middle items-center mx-auto justify-between"
         >
           <div
             className="md:hidden grid self-center"
@@ -35,7 +35,7 @@ export default function Header() {
               src={LOGO_PNG}
               alt="Foodie Logo Transparent"
               style={{ height: logoHeight, width: logoWidth }}
-              className="object-contain"
+              className="object-contain justify-self-center max-w-60 lg:max-w-xs"
             />
           </Link>
           <div className="hidden px-3 md:flex justify-end lg:justify-center w-full gap-5 mx-auto items-center">
@@ -47,7 +47,7 @@ export default function Header() {
             <CartIcon />
           </div>
           <div
-            className="md:hidden grid self-center"
+            className="md:hidden grid self-center pr-2"
           >
             <CartIcon />
           </div>

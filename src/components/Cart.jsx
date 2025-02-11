@@ -59,7 +59,6 @@ export default function Cart() {
                     <div className="w-3/4">
                       <strong>{name}</strong>
                       <br />
-                      {description}
                     </div>
                     <div>
                       <img

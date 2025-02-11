@@ -9,19 +9,20 @@ import {
   ViteLogo,
 } from "../assets/icons/Icon";
 import ContactForm from "./ContactForm";
+import profilePath from "../assets/images/new pp.png";
 
 export default function About() {
   return (
     <div>
-      <div className="bg-primary h-96 grid content-center bg-about-cover bg-no-repeat bg-contain bg-left">
-        <h1 className="text-white text-6xl">About App</h1>
-        <h2 className="text-white italic">
+      <div className="bg-primary h-96 grid content-center bg-about-cover bg-no-repeat bg-contain">
+        <h1 className="text-white text-5xl sm:text-6xl">About App</h1>
+        <h2 className="text-white italic text-xl">
           "A food ordering app inspired by Swiggy"
         </h2>
         <div className="grid justify-items-center my-2">
           <img
             className="rounded-full my-2"
-            src="/src/assets/images/new pp.png"
+            src={profilePath}
             width="60"
             height="60"
           />

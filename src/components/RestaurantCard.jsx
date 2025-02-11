@@ -19,7 +19,7 @@ export default function RestaurantCard({
     >
       <div className="border-2 flex-start h-full shadow-inner hover:shadow-lg hover:scale-105 rounded-md border-grey w-[100%] min-h-fit flex flex-wrap cursor-pointer">
         <div
-          className="relative w-full min-h-32 rounded-t-md bg-cover"
+          className="relative w-full min-h-48 lg:min-h-32 rounded-t-md bg-cover"
           style={{ backgroundImage: `url(${RES_IMG}/${reImage})` }}
         >
           <div className="absolute bottom-0 px-2 w-full flex items-end justify-between bg-gradient-to-t from-black to-transparent rounded-t-md">

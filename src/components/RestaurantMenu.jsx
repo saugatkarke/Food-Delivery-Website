@@ -33,20 +33,20 @@ export default function RestaurantMenu() {
   };
   if (restMenu.length == 0)
     return (
-      <div className="mx-auto max-w-7xl my-2 p-4">
-        <div className="bg-primary my-3 h-72 grid content-center max-w-7xl mx-auto rounded-lg">
+      <div className="mx-auto max-w-7xl sm:my-2 sm:p-4">
+        <div className="bg-primary my-3 h-72 grid content-center max-w-7xl mx-auto sm:rounded-lg">
           <Spinner />
         </div>
       </div>
     );
 
   return (
-    <div className="mx-auto max-w-7xl my-2 p-4">
+    <div className="mx-auto max-w-7xl sm:my-2 sm:p-4">
       <div className="relative">
-        <div className="bg-primary min-h-72 px-4 sm:px-16 w-full py-8 grid lg:grid-cols-3 content-center gap-1 rounded-lg">
+        <div className="bg-primary min-h-72 px-3 py-6 sm:px-16 w-full  grid lg:grid-cols-3 content-center gap-1 sm:rounded-lg">
           <div className="grid sm:grid-cols-2 justify-items-start justify-center">
-            <div className="self-center">
-              <h1 className="text-white text-5xl sm:text-left animate-fade-in-up">
+            <div className="self-center w-full">
+              <h1 className="text-white sm:text-5xl sm:text-left animate-fade-in-up">
                 {resMenuHeader.name}
               </h1>
               <p className="text-white animate-fade-in-up lg:text-center sm:text-left">
@@ -57,19 +57,19 @@ export default function RestaurantMenu() {
                 })}
               </p>
               <strong>
-                <p className="bg-white my-2 px-4 py-1 rounded-full animate-fade-in-up">
+                <p className="bg-white block justify-self-center sm:justify-self-start my-2 px-4 py-1 rounded-full animate-fade-in-up">
                   {resMenuHeader.sla.slaString}
                 </p>
               </strong>
             </div>
             <div
-              className="lg:absolute justify-self-center sm:justify-self-end bg-[position-y:10%] top-0 lg:left-auto right-0 sm:h-[12rem] lg:h-[100%] h-[10rem] lg:w-[30%] sm:w-[70%] w-full bg-no-repeat bg-cover rounded-md lg:rounded-e-lg"
+              className="lg:absolute aspect-square justify-self-center sm:justify-self-end bg-[position-y:10%] top-0 lg:left-auto right-0 sm:h-[12rem] lg:h-[100%] h-[16rem] lg:w-[30%] sm:w-[70%] w-full bg-no-repeat bg-cover rounded-md lg:rounded-e-lg"
               style={{
                 backgroundImage: `url(${RES_IMG}/${resMenuHeader.cloudinaryImageId})`,
               }}
             ></div>
           </div>
-          <div className="grid lg:w-11/12 justify-items-center lg:border-x-white lg:border-t-0 lg:border-x-2 border-t-2 border-t-white">
+          <div className="grid lg:w-11/12 justify-items-center lg:border-x-white lg:border-t-0 lg:border-x-2">
             <p className="text-white py-1 flex items-center flex-wrap justify-center animate-fade-in-up">
               <svg
                 width="24"
@@ -119,7 +119,7 @@ export default function RestaurantMenu() {
         </div>
       </div>
 
-      <div className="flex my-4 relative flex-wrap gap-4 ">
+      <div className="flex my-4 mx-3 relative flex-wrap gap-4 ">
         <strong>
           <p className="text-2xl">Deals of the Day</p>
         </strong>
@@ -200,7 +200,7 @@ export default function RestaurantMenu() {
           </button>
         </div>
       </div>
-      <div className="my-12 bg-gray-50 p-8 rounded-lg bg-food-cover bg-repeat-x bg-15% bg-blend-color-burn">
+      <div className="my-12 bg-gray-50 p-4 sm:p-8 rounded-lg bg-food-cover bg-repeat-x bg-15% bg-blend-color-burn">
         <h2 className="pb-8">Menu</h2>
         {/* <label htmlFor={nonVegTxt}>
           NonVeg
